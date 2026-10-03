@@ -1,0 +1,81 @@
+═══════════════════════════════════════════════════════════════
+  📻  RÁDIO LOCAL – Streaming na sua rede Wi-Fi / LAN
+═══════════════════════════════════════════════════════════════
+
+O que é isto?
+-------------
+Um servidor de rádio simples feito em Python. Ele transmite
+músicas (arquivos MP3, OGG, WAV etc.) continuamente para
+qualquer dispositivo conectado na mesma rede local
+(computadores, celulares, tablets, Smart TVs, etc.).
+
+Suporta vários dispositivos ouvindo ao mesmo tempo.
+
+
+COMO USAR (passo a passo)
+-------------------------
+
+1. Coloque suas músicas
+   - Abra a pasta chamada "musica"
+   - Copie para dentro dela quantos arquivos de áudio quiser
+     (preferencialmente .mp3)
+
+2. Execute o servidor
+   - Windows: clique duas vezes em "iniciar_radio.bat"
+     ou no Prompt de Comando:
+         python radio_server.py
+
+   - Linux / macOS:
+         python3 radio_server.py
+
+   - Para usar outra porta (exemplo 8080):
+         python radio_server.py 8080
+
+3. Anote o endereço que aparecer
+   Exemplo:
+       http://192.168.0.15:8000
+
+
+DUAS FORMAS DE OUVIR
+--------------------
+
+A) Modo Rádio (stream contínuo – recomendado para “rádio”)
+   - Navegador: abra o endereço principal
+   - VLC: Mídia → Abrir Fluxo de Rede → cole:
+         http://SEU_IP:8000/stream
+   - Neste modo a música toca sem parar (loop).
+   - Não há botão “próxima faixa” funcional (é uma transmissão contínua).
+
+B) Modo Playlist (próximo / anterior funcionam)
+   - VLC: Mídia → Abrir Fluxo de Rede → cole:
+         http://SEU_IP:8000/playlist.m3u
+   - Cada música aparece como faixa separada.
+   - Os botões Próximo e Anterior do VLC funcionam normalmente.
+
+
+REQUISITOS
+----------
+- Python 3.7 ou superior (ThreadingHTTPServer)
+- Nada mais! Não precisa instalar bibliotecas extras.
+
+
+DICAS
+-----
+- Para parar a rádio: pressione Ctrl + C no terminal
+- Vários celulares/computadores podem ouvir ao mesmo tempo
+- A playlist toca em loop infinito no modo stream
+- Se a pasta "musica" estiver vazia, o servidor avisa
+
+
+ESTRUTURA DAS PASTAS
+--------------------
+radio_local/
+├── radio_server.py     ← o programa principal
+├── musica/             ← coloque seus arquivos de áudio aqui
+├── iniciar_radio.bat   ← atalho para Windows
+├── iniciar_radio.sh    ← atalho para Linux/macOS
+└── LEIA-ME.txt         ← este arquivo
+
+
+Pronto! Agora você tem uma rádio própria na sua casa.
+═══════════════════════════════════════════════════════════════
